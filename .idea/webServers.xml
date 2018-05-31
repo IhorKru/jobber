@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="97527f49-d13f-479b-9518-7749797cc278" name="CreditSafe" url="http://databaseftp.creditsafe.com">
+        <fileTransfer host="databaseftp.creditsafe.com" port="21" rootFolder="/100295271">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
