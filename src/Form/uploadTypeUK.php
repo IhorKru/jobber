@@ -20,15 +20,20 @@ class uploadTypeUK extends AbstractType
     {
         $builder
             ->add('file', FileType::class, [
-                'label' => 'Select UK file',
+                'label' => 'Select UK file...',
+                'label_attr' => [
+                    'class' => 'custom-file-label',
+                    'for' => 'validatedCustomFile'
+                ],
                 'attr' => [
+                    'type' => 'file',
                     'class' => 'custom-file-input',
-                    'id' => 'customFile'
+                    'id' => 'validatedCustomFile'
                 ]])
             ->add('submit', SubmitType::class, [
                 'label' => 'Upload File',
                 'attr' => array(
-                    'class' => 'btn btn-primary mb-2'
+                    'class' => 'btn btn-primary'
                 )])
         ;
     }
