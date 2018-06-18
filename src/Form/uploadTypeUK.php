@@ -33,7 +33,8 @@ class uploadTypeUK extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Upload File',
                 'attr' => array(
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-primary',
+                    'style' => 'margin-left: 5%'
                 )])
         ;
     }
