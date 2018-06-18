@@ -8,6 +8,17 @@
 
 namespace App\Controller;
 
+use App\Entity\deupload;
+use App\Entity\ukupload;
+use App\Entity\frupload;
+use App\Entity\nlupload;
+use App\Entity\ieupload;
+use App\Entity\luupload;
+use App\Entity\seupload;
+use App\Entity\chupload;
+use App\Entity\esupload;
+use App\Entity\itupload;
+use App\Entity\beupload;
 use League\Csv\Reader;
 use League\Csv\Statement;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,8 +29,17 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Entity\User;
 use App\Form\loginType;
 use App\Form\uploadTypeUK;
+use App\Form\uploadTypeDE;
+use App\Form\uploadTypeFR;
+use App\Form\uploadTypeNL;
+use App\Form\uploadTypeIE;
+use App\Form\uploadTypeLU;
+use App\Form\uploadTypeSE;
+use App\Form\uploadTypeCH;
+use App\Form\uploadTypeES;
+use App\Form\uploadTypeIT;
+use App\Form\uploadTypeBE;
 use App\Entity\ukdata;
-use App\Entity\upload;
 use DateTime;
 use Prewk\XmlStringStreamer;
 use Prewk\XmlStringStreamer\Stream;
@@ -62,16 +82,79 @@ class adminController extends Controller {
      */
     public function adminAction (Request $request) {
         $locale = $request->getLocale();
-        $newUpload = new upload();
+        $newUKUpload = new ukupload();
+        $newDEUpload = new deupload();
+        $newFRUpload = new frupload();
+        $newNLUpload = new nlupload();
+        $newIEUpload = new ieupload();
+        $newLUUpload = new luupload();
+        $newSEUpload = new seupload();
+        $newCHUpload = new chupload();
+        $newESUpload = new esupload();
+        $newITUpload = new itupload();
+        $newBEUpload = new beupload();
+
         $em = $this ->getDoctrine() ->getManager();
-        $form = $this->createForm(uploadTypeUK::class, $newUpload, [
+
+        $UKform = $this->createForm(uploadTypeUK::class, $newUKUpload, [
             'action' => $this -> generateUrl('admin'),
             'method' => 'POST'
         ]);
-        $form->handleRequest($request);
+        $DEform = $this->createForm(uploadTypeDE::class, $newDEUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $FRform = $this->createForm(uploadTypeFR::class, $newFRUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $NLform = $this->createForm(uploadTypeNL::class, $newNLUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $IEform = $this->createForm(uploadTypeIE::class, $newIEUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $LUform = $this->createForm(uploadTypeLU::class, $newLUUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $SEform = $this->createForm(uploadTypeSE::class, $newSEUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $CHform = $this->createForm(uploadTypeCH::class, $newCHUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $ESform = $this->createForm(uploadTypeES::class, $newESUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $ITform = $this->createForm(uploadTypeIT::class, $newITUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
+        $BEform = $this->createForm(uploadTypeBE::class, $newBEUpload, [
+            'action' => $this -> generateUrl('admin'),
+            'method' => 'POST'
+        ]);
 
-        if($form->isSubmitted() && $form->isValid()) {
-            $file = $newUpload->getFile();
+        $UKform->handleRequest($request);
+        $DEform->handleRequest($request);
+        $FRform->handleRequest($request);
+        $NLform->handleRequest($request);
+        $IEform->handleRequest($request);
+        $LUform->handleRequest($request);
+        $SEform->handleRequest($request);
+        $CHform->handleRequest($request);
+        $ESform->handleRequest($request);
+        $ITform->handleRequest($request);
+        $BEform->handleRequest($request);
+
+        if($UKform->isSubmitted() && $UKform->isValid()) {
+            $file = $newUKUpload->getFile();
             $csv = Reader::createFromPath($file,'r')
                 ->setHeaderOffset(0)
             ;
@@ -99,10 +182,31 @@ class adminController extends Controller {
                 $em->flush();
             }
 
+        } elseif ($DEform->isSubmitted() && $DEform->isValid()) {
+            $file = $newDEUpload->getFile();
+            $csv = Reader::createFromPath($file,'r')
+                ->setHeaderOffset(0)
+            ;
+            $stmt = (new Statement())
+                ->offset(0)
+            ;
+            $records = $stmt->process($csv);
+        } elseif ($NLform->isSubmitted() && $NLform->isValid()) {
+
         }
 
         return $this->render('admin.html.twig',[
-            'form'=>$form->createView()
+            'UKform'=>$UKform->createView(),
+            'DEform'=>$DEform->createView(),
+            'ESform'=>$ESform->createView(),
+            'FRform'=>$FRform->createView(),
+            'IEform'=>$IEform->createView(),
+            'ITform'=>$ITform->createView(),
+            'LUform'=>$LUform->createView(),
+            'NLform'=>$NLform->createView(),
+            'SEform'=>$SEform->createView(),
+            'BEform'=>$BEform->createView(),
+            'CHform'=>$CHform->createView()
         ]);
     }
 

@@ -15,17 +15,137 @@
 </head>
 <body>
     <div style="width:90%;margin:1% 2%;">
-        {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
-        <div class="custom-file" style="width:40%;">
-                {{ form_label(form.file) }}
-                {{ form_widget(form.file) }}
-            <div class="invalid-feedback">Example invalid custom file feedback</div>
-        </div>
-        <div>
-            {{ form_label(form.submit) }}
-            {{ form_widget(form.submit) }}
-        </div>
-        {{ form_end(form) }}
+        {{ form_start(UKform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                    {{ form_label(UKform.file) }}
+                    {{ form_widget(UKform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(UKform.submit) }}
+                {{ form_widget(UKform.submit) }}
+            </div>
+            {{ form_end(UKform) }}
+        <p></p>
+        {{ form_start(DEform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(DEform.file) }}
+                {{ form_widget(DEform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(DEform.submit) }}
+                {{ form_widget(DEform.submit) }}
+            </div>
+            {{ form_end(DEform) }}
+        <p></p>
+            {{ form_start(BEform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(BEform.file) }}
+                {{ form_widget(BEform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(BEform.submit) }}
+                {{ form_widget(BEform.submit) }}
+            </div>
+            {{ form_end(BEform) }}
+        <p></p>
+            {{ form_start(CHform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(CHform.file) }}
+                {{ form_widget(CHform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(CHform.submit) }}
+                {{ form_widget(CHform.submit) }}
+            </div>
+            {{ form_end(CHform) }}
+        <p></p>
+            {{ form_start(ESform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(ESform.file) }}
+                {{ form_widget(ESform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(ESform.submit) }}
+                {{ form_widget(ESform.submit) }}
+            </div>
+            {{ form_end(ESform) }}
+        <p></p>
+            {{ form_start(FRform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(FRform.file) }}
+                {{ form_widget(FRform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(FRform.submit) }}
+                {{ form_widget(FRform.submit) }}
+            </div>
+            {{ form_end(FRform) }}
+        <p></p>
+            {{ form_start(IEform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(IEform.file) }}
+                {{ form_widget(IEform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(IEform.submit) }}
+                {{ form_widget(IEform.submit) }}
+            </div>
+            {{ form_end(IEform) }}
+        <p></p>
+            {{ form_start(ITform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(ITform.file) }}
+                {{ form_widget(ITform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(ITform.submit) }}
+                {{ form_widget(ITform.submit) }}
+            </div>
+            {{ form_end(ITform) }}
+        <p></p>
+            {{ form_start(LUform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(LUform.file) }}
+                {{ form_widget(LUform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(LUform.submit) }}
+                {{ form_widget(LUform.submit) }}
+            </div>
+            {{ form_end(LUform) }}
+        <p></p>
+        {{ form_start(NLform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(NLform.file) }}
+                {{ form_widget(NLform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(NLform.submit) }}
+                {{ form_widget(NLform.submit) }}
+            </div>
+            {{ form_end(NLform) }}
+        <p></p>
+            {{ form_start(SEform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
+            <div class="custom-file" style="width:40%;">
+                {{ form_label(SEform.file) }}
+                {{ form_widget(SEform.file) }}
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            <div>
+                {{ form_label(SEform.submit) }}
+                {{ form_widget(SEform.submit) }}
+            </div>
+            {{ form_end(SEform) }}
     </div>
 </body>
 </html>
