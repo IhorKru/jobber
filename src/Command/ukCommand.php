@@ -7,17 +7,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
-class ukCMD extends ContainerAwareCommand
+class ukCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
         $this
             // the name of the command (the part after "bin/console")
-            ->setName('app:ukprocess')
-
+            ->setName('app:cs.ukparser')
             // the short description shown while running "php bin/console list"
             ->setDescription('Command initiates request to process UK data from CreditSafe')
-
             // the full command description shown when running the command with
             // the "--help" option
             ->setHelp('Command initiates request to process UK data from CreditSafe')
@@ -26,8 +24,10 @@ class ukCMD extends ContainerAwareCommand
         ;
     }
 
-    protected function execute (InputInterface $input, OutputInterface $output) {
+    protected function execute (InputInterface $input, OutputInterface $output)
+    {
         $ukparser = $this->getContainer()->get('cs.ukparser');
-        $csvfile = $input->getArgument('file');
+        $csvfile = $input->getArgument('csv');
+        $ukparser -> ukParser($csvfile);
     }
 }

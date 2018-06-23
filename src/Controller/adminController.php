@@ -23,6 +23,7 @@ use League\Csv\Reader;
 use League\Csv\Statement;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -155,31 +156,18 @@ class adminController extends Controller {
 
         if($UKform->isSubmitted() && $UKform->isValid()) {
             $file = $newUKUpload->getFile();
-            $csv = Reader::createFromPath($file,'r')
-                ->setHeaderOffset(0)
-            ;
-            $stmt = (new Statement())
-                ->offset(0)
-            ;
-            $records = $stmt->process($csv);
-            foreach ($records as $record) {
-                $newUKload = (new Ukdata())
-                    ->setAccountid($record['AccountID7'])
-                    ->setAccountidUi8($record['AccountID_UI8'])
-                    ->setCustomernumber7($record['CustomerNumber7'])
-                    ->setAccountname7($record['AccountName7'])
-                    ->setRegistrationnumber7($record['RegistrationNumber7'])
-                    ->setBillingcountry7($record['BillingCountry7'])
-                    ->setBillingstateprovince7($record['BillingStateProvince7'])
-                    ->setBillingcity7($record['BillingCity7'])
-                    ->setBillingstreet7($record['BillingStreet7'])
-                    ->setBillingzippostalcode7($record['BillingZipPostalCode7'])
-                    ->setVatnumber7($record['VATNumber7'])
-                    ->setAccountphone7($record['AccountPhone7'])
-                    ->setDateadded(new DateTime())
-                ;
-                $em->persist($newUKload);
-                $em->flush();
+            $rootDir = getcwd();
+            $command = 'php ..bin/console app:cs.ukparser ' . $file . '""';
+            $ukProcess = new Process(
+                'php ..bin/console app:cs.ukparser ' . $file . '""'
+            );
+            $ukProcess ->setWorkingDirectory($rootDir);
+            $ukProcess ->setTimeout(null);
+            $ukProcess ->start();
+            if($ukProcess->isRunning()) {
+                while($ukProcess->isRunning()){
+
+                }
             }
         }
 

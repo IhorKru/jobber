@@ -27,6 +27,6 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     cs.ukparser:
-        class: App\Services\ukparseService
+        class: App\Service\csParserService
         calls:
-            - [serContainer, ['@service_container']]
+            - [setContainer, ['@service_container']]

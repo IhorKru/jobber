@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  *
- * @ORM\Table(name="frdata", schema="creditsafe", uniqueConstraints={@ORM\UniqueConstraint(name="frdata_pkey", columns={"id"})} )
+ * @ORM\Table(name="frdata", schema="creditsafe")
  * @ORM\Entity(repositoryClass="App\Repository\frdataRepository")
  */
 class frdata
