@@ -181,18 +181,6 @@ class adminController extends Controller {
                 $em->persist($newUKload);
                 $em->flush();
             }
-
-        } elseif ($DEform->isSubmitted() && $DEform->isValid()) {
-            $file = $newDEUpload->getFile();
-            $csv = Reader::createFromPath($file,'r')
-                ->setHeaderOffset(0)
-            ;
-            $stmt = (new Statement())
-                ->offset(0)
-            ;
-            $records = $stmt->process($csv);
-        } elseif ($NLform->isSubmitted() && $NLform->isValid()) {
-
         }
 
         return $this->render('admin.html.twig',[

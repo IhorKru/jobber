@@ -148,4 +148,62 @@
             {{ form_end(SEform) }}
     </div>
 </body>
+{% block javascripts %}
+    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}"></script>
+    <!-- Popper -->
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js') }}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script>
+        //put file name into placeholder
+        $('#upload_type_uk_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select UK file...')" ).text(filename);
+        });
+        $('#upload_type_de_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select DE file...')" ).text(filename);
+        });
+        $('#upload_type_be_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select BE file...')" ).text(filename);
+        });
+        $('#upload_type_ch_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select CH file...')" ).text(filename);
+        });
+        $('#upload_type_es_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select ES file...')" ).text(filename);
+        });
+        $('#upload_type_fr_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select FR file...')" ).text(filename);
+        });
+        $('#upload_type_ie_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select IE file...')" ).text(filename);
+        });
+        $('#upload_type_it_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select IT file...')" ).text(filename);
+        });
+        $('#upload_type_lu_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select LU file...')" ).text(filename);
+        });
+        $('#upload_type_nl_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select LU file...')" ).text(filename);
+        });
+        $('#upload_type_se_file').on('change',function () {
+            var filename = $(this).val();
+            $( "label:contains('Select SE file...')" ).text(filename);
+        });
+    </script>
+    <script>
+        //start data processing
+
+    </script>
+{% endblock %}
 </html>
