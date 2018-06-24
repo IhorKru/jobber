@@ -193,7 +193,7 @@ class csParserService extends adminController
             ->setDateadded(new DateTime())
             ;
             $em->persist($newUKload);
-            if($i == 1000){
+            if($i == 20){
                 $em->flush();
                 $i=0;
             } else {
