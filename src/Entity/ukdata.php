@@ -12,6 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
 class ukdata
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="creditsafe.ukdata_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="accountid", type="string", nullable=false)
@@ -1123,16 +1133,6 @@ class ukdata
      * @ORM\Column(name="dateadded", type="datetime", nullable=false)
      */
     private $dateadded;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="creditsafe.ukdata_id_seq", allocationSize=1, initialValue=1)
-     */
-    private $id;
 
     /**
      * @var string
@@ -3062,6 +3062,10 @@ class ukdata
     public function setAsoffdate($asoffdate)
     {
         $this->asoffdate = $asoffdate;
+
+        return $this;
     }
-    
+
+
+
 }

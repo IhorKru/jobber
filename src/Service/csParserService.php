@@ -21,7 +21,7 @@ class csParserService extends adminController
         $rootDir = getcwd();
         $em = $this ->getDoctrine() ->getManager();
         $em->getConnection()->getConfiguration()->setSQLLogger(null);
-        $file = $rootDir . '/public/source/pre_approval_data_gb_may_18.csv';
+        $file = $rootDir . '/public/source/pre_approval_data_gb_march_18.csv';
         $csv = Reader::createFromPath($file,'r')
             ->setHeaderOffset(0)
         ;
@@ -191,9 +191,9 @@ class csParserService extends adminController
                 ->setDcPrimaryDupeId($record['DC_PRIMARY_DUPE_ID'])
                 ->setDcDuplicateRule($record['DC_DUPLICATE_RULE'])
                 ->setDateadded(new DateTime())
-                ->setAsoffdate($asofdate)
+                ->setAsoffdate(DateTime::createFromFormat('Y-m-d H:i:s', $asofdate))
             ;
-            $em->persist($newUKload);
+            $em ->persist($newUKload);
             if($i == 200){
                 $em ->flush($newUKload);
                 $em ->clear();
