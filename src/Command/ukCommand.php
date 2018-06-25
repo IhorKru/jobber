@@ -21,6 +21,7 @@ class ukCommand extends ContainerAwareCommand
             ->setHelp('Command initiates request to process UK data from CreditSafe')
             //arguements that will be passed to below execute function
             ->addArgument('csv', InputArgument::REQUIRED, 'Link to CSV file to process')
+            ->addArgument('asofdate', InputArgument::REQUIRED, 'Date of file generation')
         ;
     }
 
@@ -28,6 +29,7 @@ class ukCommand extends ContainerAwareCommand
     {
         $ukparser = $this->getContainer()->get('cs.ukparser');
         $csvfile = $input->getArgument('csv');
-        $ukparser -> ukParser($csvfile);
+        $asoffdate = $input->getArgument('asofdate');
+        $ukparser -> ukParser($csvfile, $asoffdate);
     }
 }

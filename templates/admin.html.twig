@@ -10,6 +10,7 @@
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/twbs/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
         <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/dtp/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
         <!--===============================================================================================-->
     {% endblock %}
 </head>
@@ -17,10 +18,28 @@
     <div style="width:90%;margin:1% 2%;">
         {{ form_start(UKform, {'attr': {'novalidate': 'novalidate', 'class': 'form-inline'}}) }}
             <div class="custom-file" style="width:40%;">
-                    {{ form_label(UKform.file) }}
-                    {{ form_widget(UKform.file) }}
-                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                {{ form_label(UKform.file) }}
+                {{ form_widget(UKform.file) }}
             </div>
+            <div>
+                {{ form_widget(UKform.asoffdate) }}
+            </div>
+            <!--<div class="control-group">
+                <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input size="16" type="text" value="" readonly>
+                    <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+                <input type="hidden" id="dtp_input2" value="" /><br/>
+            </div>
+            <div class="control-group">
+                <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input size="16" type="text" value="" readonly>
+                    <span class="add-on"><i class="icon-remove"></i></span>
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+                <input type="hidden" id="dtp_input2" value="" /><br/>
+            </div>-->
             <div>
                 {{ form_label(UKform.submit) }}
                 {{ form_widget(UKform.submit) }}
@@ -150,10 +169,14 @@
 </body>
 {% block javascripts %}
     <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}"></script>
+    <script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/dtp/js/bootstrap-datetimepicker.js') }}"></script>
+    <script src="{{ asset('vendor/dtp/js/locales/bootstrap-datetimepicker.uk.js') }}"></script>
     <!-- Popper -->
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js') }}"></script>
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- CUST JS -->
+    <script src="{{ asset('js/custome.js') }}"></script>
+
     <script>
         //put file name into placeholder
         $('#upload_type_uk_file').on('change',function () {
@@ -200,10 +223,6 @@
             var filename = $(this).val();
             $( "label:contains('Select SE file...')" ).text(filename);
         });
-    </script>
-    <script>
-        //start data processing
-
     </script>
 {% endblock %}
 </html>

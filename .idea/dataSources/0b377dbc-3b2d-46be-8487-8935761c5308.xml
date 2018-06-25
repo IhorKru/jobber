@@ -34,8 +34,8 @@
     </role>
     <schema id="6" parent="2" name="creditsafe">
       <ObjectId>16386</ObjectId>
-      <IntrospectionTimestamp>2018-06-24.00:25:17.585</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1305</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-06-25.14:58:19.755</IntrospectionTimestamp>
+      <IntrospectionStateNumber>5817</IntrospectionStateNumber>
       <Visible>1</Visible>
     </schema>
     <schema id="7" parent="2" name="information_schema">
@@ -199,7 +199,7 @@
     </table>
     <table id="41" parent="6" name="ukdata">
       <ObjectId>26251</ObjectId>
-      <StateNumber>1305</StateNumber>
+      <StateNumber>5817</StateNumber>
     </table>
     <table id="42" parent="12" name="app_users">
       <ObjectId>16387</ObjectId>
@@ -7567,68 +7567,75 @@
       <StateNumber>1305</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="1100" parent="41" name="ukdata_pkey">
+    <column id="1100" parent="41" name="asoffdate">
+      <Position>161</Position>
+      <DataType>timestamp(0)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5817</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="1101" parent="41" name="ukdata_pkey">
       <ObjectId>26414</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="1101" parent="41" name="ukdata_pkey">
+    <key id="1102" parent="41" name="ukdata_pkey">
       <ObjectId>26415</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>ukdata_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="1102" parent="42" name="id">
+    <column id="1103" parent="42" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>946</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="1103" parent="42" name="username">
+    <column id="1104" parent="42" name="username">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>946</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="1104" parent="42" name="password">
+    <column id="1105" parent="42" name="password">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>946</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="1105" parent="42" name="email">
+    <column id="1106" parent="42" name="email">
       <Position>4</Position>
       <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>946</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="1106" parent="42" name="is_active">
+    <column id="1107" parent="42" name="is_active">
       <Position>5</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>946</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="1107" parent="42" name="app_users_pkey">
+    <index id="1108" parent="42" name="app_users_pkey">
       <ObjectId>16390</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="1108" parent="42" name="uniq_c2502824f85e0677">
+    <index id="1109" parent="42" name="uniq_c2502824f85e0677">
       <ObjectId>16392</ObjectId>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="1109" parent="42" name="uniq_c2502824e7927c74">
+    <index id="1110" parent="42" name="uniq_c2502824e7927c74">
       <ObjectId>16393</ObjectId>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="1110" parent="42" name="app_users_pkey">
+    <key id="1111" parent="42" name="app_users_pkey">
       <ObjectId>16391</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>app_users_pkey</UnderlyingIndexName>

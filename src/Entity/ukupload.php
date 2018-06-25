@@ -29,6 +29,13 @@ class ukupload {
     private $file;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="asoffdate", type="datetime", nullable=false)
+     */
+    private $asoffdate;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -60,5 +67,20 @@ class ukupload {
         $this->file = $file;
     }
 
+    /**
+     * @return string
+     */
+    public function getAsoffdate()
+    {
+        return $this->asoffdate;
+    }
+
+    /**
+     * @param string $asoffdate
+     */
+    public function setAsoffdate($asoffdate)
+    {
+        $this->asoffdate = $asoffdate;
+    }
 
 }

@@ -12,6 +12,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class uploadTypeUK extends AbstractType
@@ -29,6 +30,13 @@ class uploadTypeUK extends AbstractType
                     'type' => 'file',
                     'class' => 'custom-file-input',
                     'id' => 'validatedCustomFile'
+                ]])
+            ->add('asoffdate', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'As off date',
+                    'style' => 'margin-left: 1.5%'
                 ]])
             ->add('submit', SubmitType::class, [
                 'label' => 'Upload File',

@@ -1134,6 +1134,13 @@ class ukdata
      */
     private $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="asoffdate", type="datetime", nullable=false)
+     */
+    private $asoffdate;
+
     public function getAccountid(): ?string
     {
         return $this->accountid;
@@ -3047,4 +3054,14 @@ class ukdata
         return $this->id;
     }
 
+    public function getAsoffdate()
+    {
+        return $this->asoffdate;
+    }
+
+    public function setAsoffdate($asoffdate)
+    {
+        $this->asoffdate = $asoffdate;
+    }
+    
 }
