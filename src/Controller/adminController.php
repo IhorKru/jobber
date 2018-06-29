@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ihorkruchynenko
- * Date: 18/05/2018
- * Time: 20:55
- */
 
 namespace App\Controller;
 
@@ -156,10 +150,11 @@ class adminController extends Controller {
 
         if($UKform->isSubmitted() && $UKform->isValid()) {
             $file = $newUKUpload->getFile();
+            $asofdate = $newUKUpload->getAsoffdate();
             $rootDir = getcwd();
-            $command = 'php ..bin/console app:cs.ukparser ' . $file . '""';
+            $command = 'php ..bin/console app:cs.ukparser ' . $file . " " . $asofdate .'""';
             $ukProcess = new Process(
-                'php ..bin/console app:cs.ukparser ' . $file . '""'
+                'php ..bin/console app:cs.ukparser ' . $file . " " . $asofdate. '""'
             );
             $ukProcess ->setWorkingDirectory($rootDir);
             $ukProcess ->setTimeout(null);
