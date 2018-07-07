@@ -16,13 +16,14 @@ use App\Entity\ukdata;
 
 class csParserService extends adminController
 {
+    private $file;
+    private $asofdate;
 
     public function ukParser($file, $asofdate) {
         $rootDir = getcwd();
         $em = $this ->getDoctrine() ->getManager();
         $em->getConnection()->getConfiguration()->setSQLLogger(null);
-        $file = $rootDir . '/public/source/pre_approval_data_gb_june_18.csv';
-        $csv = Reader::createFromPath($file,'r')
+        $csv = Reader::createFromPath($file, 'r')
             ->setHeaderOffset(0)
         ;
         $stmt = (new Statement())
