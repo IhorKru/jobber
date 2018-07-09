@@ -30,3 +30,7 @@ services:
         class: App\Service\csParserService
         calls:
             - [setContainer, ['@service_container']]
+    cs.beparser:
+        class: App\Service\csBEParserService
+        calls:
+            - [setContainer, ['@service_container']]

@@ -13,13 +13,15 @@ use League\Csv\Reader;
 use League\Csv\Statement;
 use DateTime;
 use App\Entity\ukdata;
+use App\Entity\bedata;
 
 class csParserService extends adminController
 {
     private $file;
     private $asofdate;
 
-    public function ukParser($file, $asofdate) {
+    public function ukParser($file, $asofdate) 
+    {
         $rootDir = getcwd();
         $em = $this ->getDoctrine() ->getManager();
         $em->getConnection()->getConfiguration()->setSQLLogger(null);
@@ -31,7 +33,7 @@ class csParserService extends adminController
         ;
         $records = $stmt ->process($csv);
         $i = 0;
-        foreach($records as $record) {
+        foreach ($records as $record) {
             $newUKload = ( new Ukdata() )
                 ->setAccountid($record['AccountID7'])
                 ->setAccountidUi8($record['AccountID_UI8'])

@@ -1029,6 +1029,13 @@ class bedata
      */
     private $dateadded;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="asoffdate", type="datetime", nullable=false)
+     */
+    private $asoffdate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -2762,5 +2769,16 @@ class bedata
         return $this;
     }
 
+    public function getAsoffdate()
+    {
+        return $this->asoffdate;
+    }
+
+    public function setAsoffdate($asoffdate)
+    {
+        $this->asoffdate = $asoffdate;
+
+        return $this;
+    }
 
 }
