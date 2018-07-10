@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
-class ukCommand extends ContainerAwareCommand
+class beCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
@@ -27,9 +27,9 @@ class ukCommand extends ContainerAwareCommand
 
     protected function execute (InputInterface $input, OutputInterface $output)
     {
-        $ukparser = $this->getContainer()->get('cs.beparser');
+        $beparser = $this->getContainer()->get('cs.beparser');
         $csvfile = $input->getArgument('csv');
         $asoffdate = $input->getArgument('asofdate');
-        $ukparser -> ukParser($csvfile, $asoffdate);
+        $beparser -> beParser($csvfile, $asoffdate);
     }
 }

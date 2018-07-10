@@ -57,17 +57,10 @@ class adminController extends Controller {
         $lastUsername = $authUtils->getLastUsername();
         // creating login userform
         $newLogin = new User();
-        $form = $this->createForm(loginType::class, $newLogin, [
-            'action' => $this -> generateUrl('login'),
-            'method' => 'POST'
-        ]);
+        $form = $this->createForm(loginType::class, $newLogin, ['action' => $this -> generateUrl('login'), 'method' => 'POST']);
         $form->handleRequest($request);
 
-        return $this->render('login.html.twig',[
-            'form'=>$form->createView(),
-            'last_username' => $lastUsername,
-            'error' => $error
-        ]);
+        return $this->render('login.html.twig', ['form'=>$form->createView(), 'last_username' => $lastUsername, 'error' => $error]);
     }
 
     /**
@@ -75,7 +68,8 @@ class adminController extends Controller {
      * @param Request $request
      * @return Response
      */
-    public function adminAction (Request $request) {
+    public function adminAction(Request $request) 
+    {
         $locale = $request->getLocale();
         $newUKUpload = new ukupload();
         $newDEUpload = new deupload();
@@ -91,50 +85,17 @@ class adminController extends Controller {
 
         $em = $this ->getDoctrine() ->getManager();
 
-        $UKform = $this->createForm(uploadTypeUK::class, $newUKUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $DEform = $this->createForm(uploadTypeDE::class, $newDEUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $FRform = $this->createForm(uploadTypeFR::class, $newFRUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $NLform = $this->createForm(uploadTypeNL::class, $newNLUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $IEform = $this->createForm(uploadTypeIE::class, $newIEUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $LUform = $this->createForm(uploadTypeLU::class, $newLUUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $SEform = $this->createForm(uploadTypeSE::class, $newSEUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $CHform = $this->createForm(uploadTypeCH::class, $newCHUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $ESform = $this->createForm(uploadTypeES::class, $newESUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $ITform = $this->createForm(uploadTypeIT::class, $newITUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
-        $BEform = $this->createForm(uploadTypeBE::class, $newBEUpload, [
-            'action' => $this -> generateUrl('admin'),
-            'method' => 'POST'
-        ]);
+        $UKform = $this->createForm(uploadTypeUK::class, $newUKUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $DEform = $this->createForm(uploadTypeDE::class, $newDEUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $FRform = $this->createForm(uploadTypeFR::class, $newFRUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $NLform = $this->createForm(uploadTypeNL::class, $newNLUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $IEform = $this->createForm(uploadTypeIE::class, $newIEUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $LUform = $this->createForm(uploadTypeLU::class, $newLUUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $SEform = $this->createForm(uploadTypeSE::class, $newSEUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $CHform = $this->createForm(uploadTypeCH::class, $newCHUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $ESform = $this->createForm(uploadTypeES::class, $newESUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $ITform = $this->createForm(uploadTypeIT::class, $newITUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
+        $BEform = $this->createForm(uploadTypeBE::class, $newBEUpload, ['action' => $this -> generateUrl('admin'), 'method' => 'POST']);
 
         $UKform->handleRequest($request);
         $DEform->handleRequest($request);
@@ -148,7 +109,7 @@ class adminController extends Controller {
         $ITform->handleRequest($request);
         $BEform->handleRequest($request);
 
-        if($UKform->isSubmitted() && $UKform->isValid()) {
+        if ($UKform->isSubmitted() && $UKform->isValid()) {
             $file = $newUKUpload->getFile();
             $asofdate = $newUKUpload->getAsoffdate();
             $rootDir = getcwd();
@@ -159,26 +120,14 @@ class adminController extends Controller {
             $ukProcess ->setWorkingDirectory($rootDir);
             $ukProcess ->setTimeout(null);
             $ukProcess ->start();
-            if($ukProcess->isRunning()) {
-                while($ukProcess->isRunning()){
+            if ($ukProcess->isRunning()) {
+                while ($ukProcess->isRunning()){
 
                 }
             }
         }
 
-        return $this->render('admin.html.twig',[
-            'UKform'=>$UKform->createView(),
-            'DEform'=>$DEform->createView(),
-            'ESform'=>$ESform->createView(),
-            'FRform'=>$FRform->createView(),
-            'IEform'=>$IEform->createView(),
-            'ITform'=>$ITform->createView(),
-            'LUform'=>$LUform->createView(),
-            'NLform'=>$NLform->createView(),
-            'SEform'=>$SEform->createView(),
-            'BEform'=>$BEform->createView(),
-            'CHform'=>$CHform->createView()
-        ]);
+        return $this->render('admin.html.twig', ['UKform'=>$UKform->createView(), 'DEform'=>$DEform->createView(), 'ESform'=>$ESform->createView(), 'FRform'=>$FRform->createView(), 'IEform'=>$IEform->createView(), 'ITform'=>$ITform->createView(), 'LUform'=>$LUform->createView(), 'NLform'=>$NLform->createView(), 'SEform'=>$SEform->createView(), 'BEform'=>$BEform->createView(), 'CHform'=>$CHform->createView() ]);
     }
 
     /**
@@ -186,13 +135,14 @@ class adminController extends Controller {
      * @param Request $request
      * @return Response
      */
-    public function convertImageAction (Request $request) {
+    public function convertImageAction(Request $request) 
+    {
         $rootdir = getcwd();
         $roordirm = $rootdir . '/working/input/';
         $i = 0;
 
         $files = scandir($roordirm);
-        foreach($files as $file) {
+        foreach ($files as $file) {
             if ($i > 1) {
                 //getting file names right
                 $path_parts = pathinfo($file);

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ihorkruchynenko
- * Date: 23/06/2018
- * Time: 22:48
- */
 
 namespace App\Service;
 
@@ -13,7 +7,6 @@ use League\Csv\Reader;
 use League\Csv\Statement;
 use DateTime;
 use App\Entity\ukdata;
-use App\Entity\bedata;
 
 class csParserService extends adminController
 {

@@ -1025,7 +1025,7 @@ class bedata
     /**
      * @var string
      *
-     * @ORM\Column(name="dateadded", type="string", nullable=false)
+     * @ORM\Column(name="dateadded", type="datetime", nullable=false)
      */
     private $dateadded;
 
@@ -2757,12 +2757,12 @@ class bedata
         return $this;
     }
 
-    public function getDateadded(): ?string
+    public function getDateadded()
     {
         return $this->dateadded;
     }
 
-    public function setDateadded(string $dateadded): self
+    public function setDateadded($dateadded)
     {
         $this->dateadded = $dateadded;
 
